@@ -2,18 +2,29 @@ const webpack = require("webpack");
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
+const ejs = require("ejs");
 const srcDir = path.join(__dirname, "..", "src");
 
+function transformHtml(content) {
+  return ejs.render(content.toString(), {
+    ...process.env,
+  });
+}
 module.exports = {
   entry: {
-    popup: path.join(srcDir, "popup.tsx"),
-    options: path.join(srcDir, "options.tsx"),
-    background: path.join(srcDir, "background.ts"),
-    content_script: path.join(srcDir, "content_script.ts"),
+    popup: path.join(srcDir, "popup/index.tsx"),
+    options: path.join(srcDir, "options/index.tsx"),
+    background: path.join(srcDir, "background/index.ts"),
+    content_script: path.join(srcDir, "content_script/index.tsx"),
+    "monaco-editor/iframe/index": path.join(
+      srcDir,
+      "monaco-editor/iframe/index.ts"
+    ),
   },
+
   output: {
-    path: path.join(__dirname, "../dist/js"),
     filename: "[name].js",
+    path: path.join(__dirname, "../dist"),
   },
   optimization: {
     splitChunks: {
@@ -45,8 +56,26 @@ module.exports = {
     extensions: [".ts", ".tsx", ".js"],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      global: "window",
+    }),
     new CopyPlugin({
-      patterns: [{ from: ".", to: "../", context: "public" }],
+      patterns: [
+        { from: "public", to: "dist" },
+        {
+          from: "src/monaco-editor/iframe/index.html",
+          to: "monaco-editor/iframe/index.html",
+          transform: transformHtml,
+        },
+        {
+          from: "node_modules/monaco-editor/min/**/*",
+          to: "monaco-editor/iframe/",
+        },
+        {
+          from: "node_modules/requirejs/**/*",
+          to: "monaco-editor/iframe/",
+        },
+      ],
       options: {},
     }),
     new MonacoWebpackPlugin({
