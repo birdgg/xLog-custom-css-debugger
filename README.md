@@ -3,6 +3,11 @@
 A convenient chrome extension for debugging custom CSS in Xlog.
 
 ![screenshot](./images/screenshot.png)
+
+## Features
+- Debug your xlog custom css in real time
+- Enjoy a pleasant code editing experience with the Monaco Editor
+- Explore other fantastic CSS styles on the fly
 ## Develop
 
 ```
@@ -15,9 +20,10 @@ $ yarn watch
 download latest release dist.zip, load `dist` directory
 
 ## TODO
+- [ ] Draggable and minimizable debug window
 - [ ] modify style
-- [ ] use unocss
+- [ ] try unocss
 - [ ] setup ci
-- [ ] migrate to vite maybe
+- [ ] migrate from webpack to vite maybe(https://github.com/antfu/vitesse-webext)
 - [ ] upload to chrome extension store
 - [ ] firefox and edge version
