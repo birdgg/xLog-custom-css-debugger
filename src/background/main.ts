@@ -1,3 +1,5 @@
+import { sendMessage } from 'webext-bridge/background'
+
 // only on dev mode
 if (import.meta.hot) {
   // @ts-expect-error for background HMR
@@ -20,5 +22,5 @@ browser.contextMenus.create({
 
 browser.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === 'toggleComponent' && tab?.id)
-    browser.tabs.sendMessage(tab.id, { action: 'toggleComponent' })
+    sendMessage('toggleComponent', {}, `content-script@${tab.id}`)
 })
