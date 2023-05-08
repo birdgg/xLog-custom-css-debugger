@@ -90,7 +90,7 @@ watch([theme, isMonacoLoaded], ([newTheme, isLoaded]) => {
       <h2 class="flex-1">
         xLog css debugger
       </h2>
-      <div class="flex justify-between">
+      <div class="flex justify-between align-baseline">
         <material-symbols:minimize
           class="block text-lg" @click="$emit('minimize')"
         />

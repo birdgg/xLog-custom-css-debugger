@@ -18,7 +18,7 @@
     "dev:web": "vite",
     "dev:js": "npm run build:js -- --mode development",
     "dev:monaco": "npm run build:monaco -- --mode development",
-    "build": "cross-env NODE_ENV=production run-s clear build:web build:prepare build:background build:js",
+    "build": "cross-env NODE_ENV=production run-s clear build:web build:prepare build:background build:js build:monaco",
     "build:prepare": "esno scripts/prepare.ts",
     "build:background": "vite build --config vite.config.background.ts",
     "build:web": "vite build",

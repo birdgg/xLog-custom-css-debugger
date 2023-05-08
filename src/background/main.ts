@@ -8,7 +8,6 @@ if (import.meta.hot) {
 
 browser.runtime.onInstalled.addListener((): void => {
 
-  // console.log('Extension installed')
 })
 
 // const previousTabId = 0
