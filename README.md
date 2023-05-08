@@ -25,11 +25,8 @@ on your page, right click and select Toggle xLog css debugger to open editor
 
 enjoy your debugging
 ## TODO
-- [ ] Draggable and minimizable debug window
 - [ ] modify style
-- [ ] try unocss
 - [ ] setup ci
-- [ ] migrate from webpack to vite maybe(https://github.com/antfu/vitesse-webext)
 - [ ] upload to chrome extension store
 - [ ] firefox and edge version
 
