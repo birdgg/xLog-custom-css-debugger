@@ -11,9 +11,9 @@ A convenient chrome extension for debugging custom CSS in Xlog.
 ## Develop
 
 ```
-$ yarn
+$ pnpm i
 
-$ yarn watch
+$ pnpm dev
 ```
 ## How to use
 
@@ -27,7 +27,6 @@ enjoy your debugging
 ## TODO
 - [ ] modify style
 - [ ] setup ci
-- [ ] upload to chrome extension store
 - [ ] firefox and edge version
 
 ## Contribute

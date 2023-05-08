@@ -32,7 +32,7 @@ export async function getManifest() {
     permissions: [
       'contextMenus',
     ],
-    host_permissions: ['*://*/*'],
+    // host_permissions: ['*://*/*'],
     content_scripts: [
       {
         matches: [
