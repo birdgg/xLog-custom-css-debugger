@@ -58,6 +58,9 @@ devDependencies:
   fs-extra:
     specifier: ^11.1.1
     version: 11.1.1
+  js-base64:
+    specifier: ^3.7.5
+    version: 3.7.5
   jsdom:
     specifier: ^21.1.2
     version: 21.1.2
@@ -4224,6 +4227,10 @@ packages:
 
   /jose@4.13.1:
     resolution: {integrity: sha512-MSJQC5vXco5Br38mzaQKiq9mwt7lwj2eXpgpRyQYNHYt2lq1PjkWa7DLXX0WVcQLE9HhMh3jPiufS7fhJf+CLQ==}
+    dev: true
+
+  /js-base64@3.7.5:
+    resolution: {integrity: sha512-3MEt5DTINKqfScXKfJFrRbxkrnk2AxPWGBL/ycjz4dK8iqiSJ06UxD8jh8xuh6p10TX4t2+7FsBYVxxQbMg+qA==}
     dev: true
 
   /js-beautify@1.14.6:

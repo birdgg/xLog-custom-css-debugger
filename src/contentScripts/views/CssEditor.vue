@@ -83,7 +83,7 @@ watch([theme, isMonacoLoaded], ([newTheme, isLoaded]) => {
 
 <template>
   <div
-    class="flex flex-col bg-zinc-800"
+    class="flex flex-col bg-zinc-50 dark:bg-zinc-800 text-black dark:text-white"
     :style="{ height: `${height}px` }"
   >
     <div class="flex h-[40px] justify-between px-2 py-1 items-center">
@@ -92,15 +92,15 @@ watch([theme, isMonacoLoaded], ([newTheme, isLoaded]) => {
       </h2>
       <div class="flex justify-between">
         <material-symbols:minimize
-          class="block" text-white text-lg @click="$emit('minimize')"
+          class="block text-lg" @click="$emit('minimize')"
         />
-        <material-symbols:close class="block text-white text-lg" @click="onClose" />
+        <material-symbols:close class="block text-lg" @click="onClose" />
       </div>
     </div>
     <iframe ref="iframe" :src="src" class="flex-1" />
     <div className="flex justify-end h-[50px] px-2 items-center">
       <button
-        class="font-bold rounded w-[100px] h-[40px] bg-teal-600 text-white"
+        class="font-bold rounded w-[100px] h-[40px] bg-teal-600 text-white border-none"
         @click="onCopy"
       >
         {{ isCopied ? "Copied" : "Copy" }}
