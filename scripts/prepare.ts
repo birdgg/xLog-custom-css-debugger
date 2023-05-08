@@ -46,6 +46,9 @@ if (isDev) {
 fs.copySync(
   'src/monaco-editor/index.html',
   'extension/monaco-editor/iframe/index.html')
+fs.copySync('node_modules/webextension-polyfill/dist/browser-polyfill.min.js',
+  'extension/monaco-editor/iframe/node_modules/browser-polyfill.min.js',
+)
 fs.copySync(
   'node_modules/requirejs/require.js',
   'extension/monaco-editor/iframe/node_modules/requirejs/require.js')

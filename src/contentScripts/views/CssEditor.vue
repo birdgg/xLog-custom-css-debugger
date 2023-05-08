@@ -10,7 +10,7 @@ defineEmits(['minimize'])
 const isMonacoLoaded = ref(false)
 const editorValue = ref('')
 const iframe = ref<HTMLIFrameElement | null>(null)
-const src = ref(chrome.runtime.getURL('monaco-editor/iframe/index.html'))
+const src = ref(browser.runtime.getURL('monaco-editor/iframe/index.html'))
 const theme = useTheme()
 const { height } = useWindowSize()
 const isCopied = ref(false)
@@ -31,7 +31,7 @@ const messageHandler = ({ data }: { data: IframeMessage }) => {
 }
 
 const postMessageToIframe = (message: object) => {
-  iframe.value?.contentWindow?.postMessage(message, chrome.runtime.getURL('*'))
+  iframe.value?.contentWindow?.postMessage(message, browser.runtime.getURL('*'))
 }
 
 const onClose = () => {

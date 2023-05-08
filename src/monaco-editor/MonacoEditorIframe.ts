@@ -26,7 +26,7 @@ class MonacEditorIframe {
   loadEditor(callback: () => void): void {
     window.require.config({
       paths: {
-        vs: chrome.runtime.getURL(
+        vs: browser.runtime.getURL(
           'monaco-editor/iframe/node_modules/monaco-editor/min/vs',
         ),
       },

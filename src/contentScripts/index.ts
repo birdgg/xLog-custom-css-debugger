@@ -11,7 +11,7 @@ import { setupApp } from '~/logic/common-setup'
   // })
 
   // mount component to context window
-  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'toggleComponent') {
       if (document.querySelector(`#${__NAME__}`)) {
         removeDebuggerNode()
