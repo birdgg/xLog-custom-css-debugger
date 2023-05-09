@@ -1,2 +1,3 @@
-import MonacoEditorIframe from "./MonacoEditorIframe";
-new MonacoEditorIframe();
+import MonacoEditorIframe from './MonacoEditorIframe'
+// eslint-disable-next-line no-new
+new MonacoEditorIframe()
