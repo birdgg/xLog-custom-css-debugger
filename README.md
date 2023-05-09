@@ -1,6 +1,6 @@
 # xLog custom css debugger
 
-A convenient chrome extension for debugging custom CSS in Xlog.
+A convenient chrome extension for debugging custom CSS in xLog.
 
 ![screenshot](./images/screenshot.png)
 
@@ -13,7 +13,12 @@ A convenient chrome extension for debugging custom CSS in Xlog.
 ```
 $ pnpm i
 
+// chrome
 $ pnpm dev
+
+// firefox
+$ pnpm dev-firefox
+$ pnpm start:firefox
 ```
 ## How to use
 
@@ -27,7 +32,6 @@ enjoy your debugging
 ## TODO
 - [ ] modify style
 - [ ] setup ci
-- [ ] firefox and edge version
 
 ## Contribute
 

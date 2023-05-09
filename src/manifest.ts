@@ -1,7 +1,7 @@
 import fs from 'fs-extra'
 import type { Manifest } from 'webextension-polyfill'
 import type PkgType from '../package.json'
-import { isDev, port, r } from '../scripts/utils'
+import { isDev, isFirefox, port, r } from '../scripts/utils'
 
 export async function getManifest() {
   const pkg = await fs.readJSON(r('package.json')) as typeof PkgType
@@ -21,9 +21,14 @@ export async function getManifest() {
     //   page: './dist/options/index.html',
     //   open_in_tab: true,
     // },
-    background: {
-      service_worker: './dist/background/index.mjs',
-    },
+    background: isFirefox
+      ? {
+          scripts: ['dist/background/index.mjs'],
+          type: 'module',
+        }
+      : {
+          service_worker: './dist/background/index.mjs',
+        },
     icons: {
       16: './assets/icon-512.png',
       48: './assets/icon-512.png',
@@ -32,7 +37,7 @@ export async function getManifest() {
     permissions: [
       'contextMenus',
     ],
-    // host_permissions: ['*://*/*'],
+    host_permissions: ['*://*/*'],
     content_scripts: [
       {
         matches: [
@@ -51,7 +56,7 @@ export async function getManifest() {
       {
         resources: ['monaco-editor/*'],
         matches: ['<all_urls>'],
-        use_dynamic_url: false,
+        // use_dynamic_url: false,
       },
     ],
     content_security_policy: {
@@ -60,6 +65,16 @@ export async function getManifest() {
         ? `script-src \'self\' http://localhost:${port}; object-src \'self\'`
         : 'script-src \'self\'; object-src \'self\'',
     },
+  }
+
+  if (isFirefox) {
+    manifest.browser_specific_settings = {
+      gecko: {
+        id: 'xlogcustomcssdebugger@birdgg.me',
+      },
+    }
+
+    delete manifest.content_security_policy
   }
 
   // FIXME: not work in MV3

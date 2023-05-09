@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import { isDev, r } from './scripts/utils'
+import { isDev, outputDir, r } from './scripts/utils'
 
 export default defineConfig({
   root: r('src'),
@@ -12,7 +12,7 @@ export default defineConfig({
     watch: isDev
       ? {}
       : undefined,
-    outDir: r('extension/monaco-editor/iframe'),
+    outDir: r(`${outputDir}/monaco-editor/iframe`),
     assetsDir: '',
     emptyOutDir: false,
     sourcemap: false,
