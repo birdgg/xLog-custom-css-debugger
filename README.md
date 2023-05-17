@@ -15,7 +15,7 @@
     <img alt="Firefox" src="https://img.shields.io/amo/stars/xlog-custom-css-debugger?color=orange&label=Firefox&style=flat-square&logo=firefox&logoColor=white" />
   </a>
 
-  <a href="https://microsoftedge.microsoft.com/addons/detail/" target="_blank">
+  <a href="https://microsoftedge.microsoft.com/addons/detail/xlog-custom-css-debugger/meieibkjkafcggkalnglfadkkcbmkcao" target="_blank">
    <img alt="Microsoft Edge" src="https://img.shields.io/badge/Edge-download-blue?style=flat-square&logo=microsoft-edge" />
   </a>
 </p>
